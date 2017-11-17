@@ -1,32 +1,37 @@
+//C Program To SORT String in Alphabetical Order
 #include <stdio.h>
 #include <stdlib.h>
-#define COLMAX 10
-#define ROWMAX 10
 int main()
 {
-    int row,column,r,n,i;
-    printf("  \n\n       Multiplication Table              \n");
-    printf("\n\n");
-    for(column=1;column<=COLMAX;column++)
+   int i,j;
+   char str[5][50],temp[50];
+   printf("\n enter 5 string \n");
+   for(i=0;i<5;i++)
+   {
+       gets(str[i]);
+   }
+  printf("\nData:\n");
+   for(i=0;i<5;i++)
+   {
+       printf("%s \t",str[i]);
+   }
+  printf("\n\nAlphabetical Order:\n");
+   for(i=0;i<5;i++)
+   {
+       for(j=i+1;j<5;j++)
+       {
+           if(strcmp(str[i], str[j])>0)
+            {
+                strcpy(temp, str[i]);
+                strcpy(str[i], str[j]);
+                strcpy(str[j], temp);
+            }
+       }
+   }
+  for(i=0; i<5; i++)
     {
-        printf("  %4d",column);
+        puts(str[i]);
     }
-    printf("\n");
-    printf("----------------------------------------------------------------\n");
-
-for(row=1;row<=ROWMAX;row++)
-    {
-        printf("%2d|",row);
-
-        for(column=1;column<=COLMAX;column++)
-        {
-            r=row*column;
-            printf(" %5d",r);
-
-        }
-          printf("\n\n");
-    }
-
-       return 0;
-
+printf("\n\n");
+    return 0;
 }
